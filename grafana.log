@@ -1,0 +1,2 @@
+docker: Error response from daemon: Conflict. The container name "/grafana" is already in use by container "caeed6d9c70f017e38b6a9d1097476ad5c78aee6ef0469cdfe9e244bb0a629b8". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.

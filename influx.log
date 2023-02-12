@@ -1,0 +1,2 @@
+docker: Error response from daemon: Conflict. The container name "/influxdb" is already in use by container "0124ad008b8b4eb2864ec9d2a3be562d0562c75c435c731632fb6814dc15b365". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
