@@ -12,7 +12,7 @@ echo "Please enter your root password (This password wosn't save in the sysyem)"
 sudo echo "This script will be running only with root permissions"
 
 # run containers for influx
-sudo docker run --rm --name influxdb -p 8086:8086 -e INFLUXDB_ADMIN_USER=admin -e INFLUXDB_ADMIN_PASSWORD=12345678 -e INFLUXDB_HTTP_AUTH_ENABLED=true influxdb:1.8.10 >> influx.log 2>&1 &
+docker run -b --rm --name influxdb -p 8086:8086 -e INFLUXDB_ADMIN_USER=admin -e INFLUXDB_ADMIN_PASSWORD=12345678 -e INFLUXDB_HTTP_AUTH_ENABLED=true influxdb:1.8.10 >> influx.log 2>&1
 echo "Running influx docker is $?"
 sleep 5s
 #create a database named hosts_metrics in which the test data will be stored
@@ -20,7 +20,7 @@ curl -X POST 'http://localhost:8086/query' -u admin:12345678 --data-urlencode "q
 echo Create DB hosts_metrics is $?
 sleep 2s
 #Run Grafana server in a Docker con
-sudo docker run --rm --name grafana -e "GF_SERVER_HTTP_PORT=3003" --network host grafana/grafana-oss >> grafana.log 2>&1 &
+docker run -b --rm --name grafana -e "GF_SERVER_HTTP_PORT=3003" --network host grafana/grafana-oss >> grafana.log 2>&1
 echo "Grafana docker is running $?"
 sleep 5s
 
